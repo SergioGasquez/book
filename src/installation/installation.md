@@ -52,7 +52,7 @@ rustup target add riscv32imc-unknown-none-elf
 
 For `std` applications, the `riscv32imc-esp-espidf` target is currently [Tier 3] and does not have prebuilt objects distributed through rustup, therefore, it does not need to be installed as `riscv32imc-unknown-none-elf`. The `-Z build-std` [unstable cargo feature] is required within your project, this [unstable cargo feature] can also be added to `.cargo/config.toml` of your project. Our [template projects], which we will later discuss, already takes care of this.
 
-Also, when building `std` applications, make sure you have [`LLVM`] and [`ldproxy`] installed. ESP-IDF will be installed by [`esp-idf-sys`] altough you can also use an existing installation, see [ESP-IDF installation note].
+Also, when building `std` applications, make sure you have [`LLVM`] and [`ldproxy`] installed. ESP-IDF will be installed by [`esp-idf-sys`] altough you can also use an existing installation.
 
 At this point, you are ready to build applications for all the Espressif chips based on RISC-V architecture.
 
@@ -84,7 +84,7 @@ Because there is no `Xtensa` support in the mainline Rust compiler you must use 
 
 [esp-rs/espup] is a tool for installing and maintaining the required ecosystem to develop applications in Rust for Espressif SoC's (both `Xtensa` and `RISC-V` targets).
 
-`espup` takes care of installing the proper Rust compiler (our fork in case of `Xtensa` targets, and the `nightly` toolchain with the necessary target for `RISC-V` targets), `LLVM` toolchain,  `GCC` toolchains, and many other things. For more details, [see Usage section of the `espup` Readme].
+`espup` takes care of installing the proper Rust compiler (our fork in case of `Xtensa` targets, and the `nightly` toolchain with the necessary target for `RISC-V` targets), `LLVM` toolchain, and `GCC` toolchains. For more details, [see Usage section of the `espup` Readme].
 
 In order to install `espup`:
 ```sh
@@ -100,39 +100,20 @@ espup install
 
 And it will install all the necessary tools to develop Rust applications for all supported ESP targets.
 
-`espup` will create and export file, by default called `export-esp.sh` on Unix systems
-and `export-esp.ps1` on Windows, this file contains the required environment variables. Please, make sure to source in every terminal before building any application:
+`espup` will create an export file, by default called `export-esp.sh` on Unix systems
+and `export-esp.ps1` on Windows, this file contains the required environment variables. In Windows, those environment variables are automatically injected to your system during installation.
+On Unix systems, it is required to source the export file in every terminal before building any application:
 
 ```sh
 # Unix
 . $HOME/export-esp.sh
-# Windows
-%USERPROFILE%\export-esp.ps1
 ```
-
-> #### A note in ESP-IDF installation.
-> We already mentioned that [ESP-IDF is required] when building `std` applications but, so far, no
-> instructions on how to install ESP-IDF have been mentioned. That is because [`esp-idf-sys`], a crate that all `std` applications
-> will use, already takes care of installing the necessary ESP-IDF version. [By default, this installation will take place under an `.embuild` folder] inside
-> the project directory.
->
-> `espup install` has a `--espidf-version` option that allows installing the desired ESP-IDF version, see [Install subcommand instructions]. When using this argument:
-> - `ldproxy` will be installed if not present already.
-> - The export file will include the necessary environment variables for ESP-IDF
-> - When building `std` applications that use the installed version of ESP-IDF, `esp-idf-sys` will recognize there is an activated ESP-IDF environment
-> and will use it instead of downloading and installing it.
->   - This is very helpful when we want to build several projects with the same ESP-IDF version as it saves time and space.
->   - Be aware that if you source the environment with an ESP-IDF version and you try to build and `std` application that uses a different version it will fail to build.
 
 [esp-rs/espup]: https://github.com/esp-rs/espup
 [see Usage section of the `espup` Readme]: https://github.com/esp-rs/espup#usage
 [release binaries]: https://github.com/esp-rs/espup/releases
 [cargo-binstall]: https://github.com/cargo-bins/cargo-binstall
-[ESP-IDF is required]: index.md
 [`esp-idf-sys`]: https://github.com/esp-rs/esp-idf-sys
-[By default, this installation will take place under an `.embuild` folder]: https://github.com/esp-rs/esp-idf-sys#esp_idf_tools_install_dir-esp_idf_tools_install_dir
-[Install subcommand instructions]: https://github.com/esp-rs/espup#install-subcommand
-[ESP-IDF installation note]: #a-note-in-esp-idf-installation
 
 ## Using Containers
 
