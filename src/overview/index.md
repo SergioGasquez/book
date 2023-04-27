@@ -20,10 +20,16 @@ See also the comparison of the different runtimes in [The Embedded Rust Book][em
 The [esp-rs organization] on GitHub is home to a number of repositories related to running Rust on Espressif chips. Most of the required crates have their source code hosted here.
 
 > A note on the repository naming convention
+>
 > In the [esp-rs organization] we use the following wording:
 >
 > - Repositories starting with `esp-idf-` are focused on `std` approach. E.g. `esp-idf-hal`
 > - Repositories starting with `esp-` are focused on `no_std` approach. E.g. `esp-hal`
+>
+> It is easy to remember as follows:
+>
+> - `no_std` works on top of bare metal, so `esp-` is an Espressif chip
+>- `std`, apart from bare metal, also needs an [additional layer](https://github.com/espressif/esp-idf), which is `esp-idf-`
 
 [esp-rs organization]: https://github.com/esp-rs/
 
