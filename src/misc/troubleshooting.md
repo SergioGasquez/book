@@ -105,6 +105,22 @@ You must clean your project and rebuild for changes in the `sdkconfig.defaults` 
 cargo clean
 cargo build
 ```
+Some of the LLVM 15 releases, `esp-15.0.0-20220922` and `esp-15.0.0-20221014`, require `libtinfo.so.5`. This dependency was removed in `esp-15.0.0-20221201` LLVM releases. If you are using any of the versions that require it, make sure `libtinf5` is installed:
+- Ubuntu/Debian: `sudo apt-get install libtinfo5`
+- Fedora: `sudo dnf install ncurses-compat-libs`
+- openSUSE: `sudo dnf install libncurses5`
+- Arch Linux: `sudo pacman -S ncurses5-compat-libs`
+
+## FAQ
+
+### I updated my `sdkconfig.defaults` file but it doesn't appear to have had any effect
+
+You must clean your project and rebuild for changes in the `sdkconfig.defaults` to take effect:
+
+```shell,ignore
+cargo clean
+cargo build
+```
 
 ### The documentation for the crates mentioned on this page is out of date or missing
 
