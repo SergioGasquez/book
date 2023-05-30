@@ -12,17 +12,18 @@ The `RISC-V` architecture has support in the mainline Rust compiler so, the setu
 - Using the official Rust tools
 - Using [`espup`, a tool that will be covered later]
 
-If you only want to use `RISC-V` targets, you can use the official Rust tools, for this approach we need [`rustup`] installed, and a [Rust nightly toolchain] with the `rust-src` [component]. We can install a nightly toolchain with the `rust-src` component via:
+[install-rust]: #install-rust
+[risc-v-targets]: #risc-v-targets-only
+[rics-v-xtensa-targets]: #risc-v-and-xtensa-targets
+[use-containers]: #using-containers
 
-```bash
-rustup toolchain install nightly --component rust-src
-```
+## Install Rust
 
-These are the two recommended targets for most Espressif `RISC-V` chips:
-- For bare-metal (`no_std`) applications: `riscv32imc-unknown-none-elf`
-- For applications that require `std`: `riscv32imc-esp-espidf`
+Make sure you have [Rust][rust-lang-org] installed. If not, see the instructions on the [rustup][rustup.rs-website] website.
 
-> #### A note in RISC-V `no_std` Rust targets.
+See also [alternative installation methods][rust-alt-installation].
+
+> **Note**: If you run Windows on your host machine, make sure you have installed one of the ABIs listed below. For more details, see the [Windows][rustup-book-windows] chapter in The rustup book.
 >
 > There are [different flavors of RISC-V 32 target in Rust] covering the different [RISC-V extensions].
 
@@ -78,7 +79,6 @@ Since the installation in this scenario is slightly complex, we have created a t
 [rustup-book-windows]: https://rust-lang.github.io/rustup/installation/windows.html
 [rust-lang-org]: https://www.rust-lang.org/
 
-
 ## RISC-V targets only
 
 To build Rust applications for the Espressif chips based on `RISC-V` architecture, do the following:
@@ -122,7 +122,7 @@ To build Rust applications for the Espressif chips based on `RISC-V` architectur
 [llvm-website]: https://llvm.org/
 [rust-esp-book-std-requirements]: #std-development-requirements
 [cargo-book-unstable-features]: https://doc.rust-lang.org/cargo/reference/unstable.html
-[rust-esp-book-write-app-generate-project]: ../writing-your-own-application/generate-project-from-template.md
+[rust-esp-book-write-app-generate-project]: ../writing-your-own-application/generate-project/index.md
 
 
 Now you should be able to build and run projects on the Espressif's `RISC-V` chips.
