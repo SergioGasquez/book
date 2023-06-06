@@ -36,9 +36,9 @@ graph TD;
 
 ### When you might want to use the Standard Library (`std`)
 
-- Rich functionality: If your embedded system requires lots of functionality like support for networking protocols, file I/O, or complex data structures, you will likely want to use hosted-environment approach because std libraries provide a wide range of functionality that can be used to build complex applications relatively quickly and efficiently
-- Portability: The `std` crate provides a standardized set of APIs that can be used across different platforms and architectures, making it easier to write code that is portable and reusable.
-- Rapid development: The `std` crate provides a rich set of functionality that can be used to build applications quickly and efficiently, without worrying, too much, about low-level details.
+- Enhanced functionality: If your embedded system requires extensive functionality such as support for networking protocols, file input/output (I/O), or intricate data structures, opting for the hosted-environment approach would be advantageous. By utilizing the std libraries, you can access a wide range of features that enable the development of complex applications with relative speed and efficiency.
+- Improved portability: By leveraging the std crate, you can utilize a standardized set of application programming interfaces (APIs) that are compatible across various platforms and architectures. This simplifies the process of writing code that is portable and can be reused across different environments.
+- Accelerated development: The std crate offers a comprehensive collection of tools and functionalities, allowing for rapid application development. With access to a broad range of capabilities, you can build applications swiftly and efficiently, minimizing the need to delve into intricate low-level details.
 
 [embedded-svc]: https://github.com/esp-rs/embedded-svc
 [esp-rs/embedded-svc]: https://github.com/esp-rs/embedded-svc

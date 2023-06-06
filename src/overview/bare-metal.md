@@ -46,11 +46,10 @@ The table below covers the current support for `no_std` at this moment for diffe
 
 ### When you might want to use bare metal (`no_std`)
 
-- Small memory footprint: If your embedded system has limited resources and needs to have a small memory footprint, you will likely want to use bare-metal because `std` features add a significant amount of final binary size and compilation time.
-- Direct hardware control: If your embedded system requires more direct control over the hardware, such as low-level device drivers or access to specialized hardware features you will likely want to use bare-metal because `std` adds abstractions that can make it harder to interact directly with the hardware.
-- Real-time constraints or time-critical applications: If your embedded system requires real-time performance or low-latency response times because `std` can introduce unpredictable delays and overhead that can affect real-time performance.
-- Custom requirements: bare-metal allows more customization and fine-grained control over the behavior of an application, which can be useful in specialized or non-standard environments.
-
+- Minimal memory usage: If your embedded system operates with limited resources and necessitates a small memory footprint, opting for the bare-metal approach is preferable. The inclusion of `std` features significantly increases the final binary size and compilation time, which may not be suitable for constrained environments.
+- Direct hardware manipulation: If your embedded system requires direct control over the hardware, such as implementing low-level device drivers or accessing specialized hardware features, utilizing the bare-metal approach is recommended. The `std` libraries introduce abstractions that can impede direct interaction with the hardware, making the bare-metal approach more suitable.
+- Real-time constraints and time-sensitive applications: For embedded systems that require real-time performance or low-latency responses, the bare-metal approach is preferred. The `std` libraries may introduce unpredictable delays and overhead that can impact real-time performance, making them less suitable for such applications.
+- Customized requirements: The bare-metal approach allows for greater customization and fine-grained control over application behavior. This can be advantageous in specialized or non-standard environments where specific requirements need to be met.
 
 [esp-rs/esp-hal]: https://github.com/esp-rs/esp-hal "Hardware abstraction layer"
 [esp-rs/esp8266-hal]: https://github.com/esp-rs/esp8266-hal "ESP8266 Hardware abstraction layer"

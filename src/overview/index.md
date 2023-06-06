@@ -44,16 +44,16 @@ The [esp-rs organization] on GitHub is home to a number of repositories related 
 | Chip     | `std` | `no_std` |
 | -------- | :---: | :------: |
 | ESP32    |   ✅   |    ✅     |
-| ESP32-C2 |   ⏳   |    ✅     |
+| ESP32-C2 |   ✅   |    ✅     |
 | ESP32-C3 |   ✅   |    ✅     |
-| ESP32-C6 |   ⏳   |    ✅     |
+| ESP32-C6 |   ✅   |    ✅     |
 | ESP32-S2 |   ✅   |    ✅     |
 | ESP32-S3 |   ✅   |    ✅     |
-| ESP32-H2 |   ⏳   |    ⏳     |
+| ESP32-H2 |   ✅   |    ⏳     |
 | ESP8266  |   ❌   |    ✅     |
 
 The products supported in certain circumstances will be called _supported Espressif products_ throughout the book.
 
-As of now, the Espressif products supported by the esp-idf framework are the ones supported for Rust `std` development. For details on different versions of esp-idf and support of Espressif chips, see [this table][esp-idf-release-compatibility].
+The Rust std development currently provides support for Espressif chips that are compatible with the ESP-IDF framework. To find more information about the various versions of ESP-IDF and their compatibility with different Espressif chips, see [this table][esp-idf-release-compatibility].
 
 [esp-idf-release-compatibility]: https://github.com/espressif/esp-idf#esp-idf-release-and-soc-compatibility
