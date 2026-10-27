@@ -12,12 +12,13 @@
 
 [Embassy] is an asynchronous (async) framework designed specifically for embedded Rust development; its [embassy-executor] crate provides an `async/await` executor which executes a fixed number of tasks, statically allocated at startup, though more can be added later. To spawn more tasks later, you may keep copies of the `Spawner`, for example by passing it as an argument to the initial tasks. For more information about `embassy` visit [Embassy book].
 
-The [`esp-rtos`] crate provides integration between [`esp-hal`] and the [Embassy] asynchronous framework. It provides support for:
+The [`esp-rtos`] crate is an RTOS implementation for [`esp-hal`]. It provides the scheduler and threads required by `esp-radio`, and the integration between `esp-hal` and the [Embassy] asynchronous framework. It provides support for:
 
-1. Interrupt-mode executor
-2. Multicore-aware thread-mode embassy executor
-3. Embassy time driver
-4. Timer waiter queue
+1. Threads, via its `thread` module
+2. Interrupt-mode executor
+3. Multicore-aware thread-mode embassy executor
+4. Embassy time driver
+5. Timer waiter queue
 
 ## ArielOS
 
@@ -29,8 +30,8 @@ The [`esp-rtos`] crate provides integration between [`esp-hal`] and the [Embassy
 
 <!-- TODO: change ArielOS to crates.io link when it's ready -->
 [official async-book]: https://rust-lang.github.io/async-book/
-[`Blocking`]: https://docs.espressif.com/projects/rust/esp-hal/1.0.0/esp32c6/esp_hal/struct.Blocking.html
-[`Async`]: https://docs.espressif.com/projects/rust/esp-hal/1.0.0/esp32c6/esp_hal/struct.Async.html
+[`Blocking`]: https://docs.espressif.com/projects/rust/esp-hal/latest/esp32c6/esp_hal/struct.Blocking.html
+[`Async`]: https://docs.espressif.com/projects/rust/esp-hal/latest/esp32c6/esp_hal/struct.Async.html
 [Embassy]: https://embassy.dev
 [embassy-executor]: https://crates.io/crates/embassy-executor
 [`esp-rtos`]: https://crates.io/crates/esp-rtos
